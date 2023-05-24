@@ -37,7 +37,14 @@ function Nav() {
                         <Link href="/create-prompt" className="black_btn">
                             Create Post
                         </Link>
-                        <button type="button" className="outline_btn">
+                        <button
+                            type="button"
+                            className="outline_btn"
+                            onClick={() => {
+                                setToggleDropdown(false);
+                                signOut();
+                            }}
+                        >
                             Sign Out
                         </button>
 
@@ -58,7 +65,8 @@ function Nav() {
                             type="button"
                             key={provider.name}
                             onClick={() => signIn(provider.id)}
-                            className="black_btn">
+                            className="black_btn"
+                        >
                             Sign In
                         </button>
                     ))
@@ -82,13 +90,15 @@ function Nav() {
                                 <Link
                                     href="/profile"
                                     className="dropdown_link"
-                                    onClick={() => setToggleDropdown(false)}>
+                                    onClick={() => setToggleDropdown(false)}
+                                >
                                     My Profile
                                 </Link>
                                 <Link
-                                    href="/profile"
+                                    href="/create-prompt"
                                     className="dropdown_link"
-                                    onClick={() => setToggleDropdown(false)}>
+                                    onClick={() => setToggleDropdown(false)}
+                                >
                                     Create Prompt
                                 </Link>
                                 <button
@@ -97,7 +107,8 @@ function Nav() {
                                     onClick={() => {
                                         setToggleDropdown(false);
                                         signOut();
-                                    }}>
+                                    }}
+                                >
                                     Sign out
                                 </button>
                             </div>
@@ -110,7 +121,8 @@ function Nav() {
                             type="button"
                             key={provider.name}
                             onClick={() => signIn(provider.id)}
-                            className="black_btn">
+                            className="black_btn"
+                        >
                             Sign In
                         </button>
                     ))
