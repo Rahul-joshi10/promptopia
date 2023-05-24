@@ -26,7 +26,6 @@ function CreatePrompt() {
                     userId: session?.user.id,
                 }),
             });
-            console.log(response);
             if (response.ok) {
                 router.push('/');
             }
