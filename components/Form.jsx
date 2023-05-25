@@ -13,7 +13,8 @@ function Form({ post, type, setPost, submitting, handleSubmit }) {
 
             <form
                 onSubmit={handleSubmit}
-                className="mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism">
+                className="mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism"
+            >
                 <label htmlFor="post-prompt">
                     <span className="font-satoshi font-semibold text-base text-gray-700">
                         Your AI Prompt
@@ -57,7 +58,8 @@ function Form({ post, type, setPost, submitting, handleSubmit }) {
                     <button
                         type="submit"
                         className="px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white"
-                        disabled={submitting}>
+                        disabled={submitting}
+                    >
                         {submitting ? `${type}...` : type}
                     </button>
                 </div>
