@@ -38,12 +38,16 @@ function Feed() {
 
     useEffect(() => {
         const allPosts = [...posts];
-        const temPosts = allPosts.filter(
+        const temPosts = allPosts?.filter(
             (p) =>
-                p.creator.username.includes(searchText) ||
-                p.creator.email.includes(searchText) ||
-                p.prompt?.includes(searchText) ||
-                p.tag?.includes(searchText)
+                p.creator.username
+                    .toLowerCase()
+                    .includes(searchText.toLowerCase()) ||
+                p.creator.email
+                    .toLowerCase()
+                    .includes(searchText.toLowerCase()) ||
+                p.prompt?.toLowerCase()?.includes(searchText?.toLowerCase()) ||
+                p.tag?.toLowerCase()?.includes(searchText?.toLowerCase())
         );
         setFilteredPosts(searchText.length > 0 ? temPosts : allPosts);
     }, [searchText]);

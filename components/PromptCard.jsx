@@ -66,6 +66,7 @@ function PromptCard({
                         }
                         height={12}
                         width={12}
+                        alt="copy button"
                     />
                 </div>
             </div>
