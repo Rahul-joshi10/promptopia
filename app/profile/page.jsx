@@ -42,6 +42,7 @@ function MyProfile() {
                 const filteredPosts = posts.filter((p) => p._id !== post._id);
                 setPosts(filteredPosts);
             } catch (error) {
+                // eslint-disable-next-line no-console
                 console.log(error);
             }
         }

@@ -30,6 +30,7 @@ function CreatePrompt() {
                 router.push('/');
             }
         } catch (error) {
+            // eslint-disable-next-line no-console
             console.log(error);
         } finally {
             setSubmitting(false);

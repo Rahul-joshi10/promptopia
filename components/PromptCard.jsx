@@ -10,7 +10,13 @@ import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
 
-function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
+function PromptCard({
+    post,
+    handleTagClick,
+    handleEdit,
+    handleDelete,
+    onPostClick,
+}) {
     const { data: session } = useSession();
     const pathName = usePathname();
 
@@ -24,7 +30,12 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
     return (
         <div className="prompt_card">
             <div className="flex justify-between items-start gap-5">
-                <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
+                <div
+                    role="button"
+                    tabIndex={0}
+                    className="flex-1 flex justify-start items-center gap-3 cursor-pointer"
+                    onClick={() => onPostClick && onPostClick(post)}
+                >
                     <Image
                         src={post.creator.image}
                         alt="user_image"
@@ -66,7 +77,7 @@ function PromptCard({ post, handleTagClick, handleEdit, handleDelete }) {
                 className="font-inter text-sm blue_gradient cursor-pointer"
                 onClick={() => handleTagClick && handleTagClick(post.tag)}
             >
-                #{post.tag}
+                {post.tag}
             </p>
             {session?.user?.id === post.creator._id &&
                 pathName === '/profile' && (
